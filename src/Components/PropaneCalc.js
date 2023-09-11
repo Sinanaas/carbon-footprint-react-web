@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import './PropaneCalc.css'
 
-function PropaneCalc() {
+function PropaneCalc({ updateTotalSum }) {
   const [litersUsed, setLitersUsed] = useState('');
   const [results, setResults] = useState(null);
+  const [previousResult, setPreviousResult] = useState(0);
 
   function calculatePropaneEmissions(litreUsed) {
     const gallonsUsed = litreUsed/3.785412
@@ -11,14 +13,22 @@ function PropaneCalc() {
     const kgToMetricTonConversion = 1 / 1000; // Convert kg to metric tons
   
     const metricTonsCO2 = gallonsUsed * barrelsPerGallon * kgCO2PerBarrel * kgToMetricTonConversion;
-    return metricTonsCO2;
+    return metricTonsCO2.toFixed(3);
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const metricTonsCO2 = calculatePropaneEmissions(parseFloat(litersUsed));
-    setResults(metricTonsCO2);
+  
+    const previousMetricTonsCO2 = previousResult !== null ? parseFloat(previousResult) : 0; 
+    const newMetricTonsCO2 = calculatePropaneEmissions(parseFloat(litersUsed));
+    const totalMetricTonsCO2 = newMetricTonsCO2 - previousMetricTonsCO2;
+  
+    updateTotalSum(0, newMetricTonsCO2, 0, 0);
+    setPreviousResult(newMetricTonsCO2);
+    setResults(newMetricTonsCO2);
   };
+  
+  
 
   return (
     <div className="PropaneContainer">
@@ -28,14 +38,16 @@ function PropaneCalc() {
       <div className="propane-form">
         <form onSubmit={handleSubmit}>
           <h3>Propane consumption in a year (liters)</h3>
-          <input
-            type="number"
-            placeholder="Enter liters"
-            value={litersUsed}
-            onChange={(e) => setLitersUsed(e.target.value)}
-            required
-          />
-          <button type="submit">Calculate</button>
+          <div className="propane-util">
+            <input
+              type="number"
+              placeholder="Enter liters"
+              value={litersUsed}
+              onChange={(e) => setLitersUsed(e.target.value)}
+              required
+            />
+            <button type="submit">Calculate</button>
+          </div>
         </form>
         {results !== null && (
           <div className="propane-results">

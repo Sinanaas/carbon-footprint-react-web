@@ -1,8 +1,8 @@
-.propane-util {
+.electricity-util {
     display: flex;
     justify-content: space-between;
 }
 
-.PropaneContainer {
+.ElectricityContainer {
     height: 20vh;
 }

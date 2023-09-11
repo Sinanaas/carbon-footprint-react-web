@@ -5,9 +5,51 @@
 
 .App {
   background-color: antiquewhite;
-  height: 1000vh;
+  /* height: 1000vh; */
 }
 
 .calc-section {
-  padding: 12vh;
+  padding: 16vh 12vh 16vh 12vh;
+  column-count: 4;
+  background-color: grey;
+  column-width: 25%;
+  column-gap: 5rem;
+  /* height: 400vh; */
+  /* display: flex; */
+}
+
+.kanan, .kiri {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: aquamarine; */
+}
+
+.calc-section button {
+  background-color: #8CB27F;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: 600;
+  color: white;
+  border: 1px solid #1F1C17;
+  /* margin-left: 1rem; */
+}
+
+.calc-section input {
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: 600;
+  color: #1F1C17;
+  border: 1px solid #1F1C17;
+  width: 30%;
+}
+
+.calc-section select {
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: 600;
+  color: #1F1C17;
+  border: 1px solid #1F1C17;
+  /* margin-right: 1rem; */
 }
