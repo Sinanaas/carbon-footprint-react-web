@@ -1,0 +1,50 @@
+:root{
+    --MapColor: #c8dac0;
+    --HoverBackgroundColor: #8cb27f;
+}
+
+.mapArea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 450px;
+}
+
+svg{
+    width: 1000px;
+    height: 400px
+}
+
+svg path{
+    fill: var(--MapColor);
+    stroke: var(--MapColor);
+    stroke-width: .25;
+}
+
+svg path:hover{
+    fill: var(--HoverBackgroundColor);
+    transform: 0.6s;
+    cursor: pointer;
+}
+
+.aq1{
+    fill: green;
+}
+
+.aq2{
+    fill: yellow;
+}
+
+.aq3{
+    fill: orange;
+}
+
+.aq4{
+    fill: blue;
+}
+
+.aq5{
+    fill: red;
+}
+

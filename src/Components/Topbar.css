@@ -1,0 +1,35 @@
+.Topbar {
+    width: 100vw;
+    height: 12vh;
+    background-color: #55725D;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+.Topbar img {
+    display: block;
+    width: auto;
+    scale: .7;
+    height: auto;
+}
+
+.Topbar ul {
+    display: flex;
+}
+
+.Topbar .links-container {
+    display: flex;
+    padding: 0 3rem 0 0;
+}
+
+.links-container a {
+    text-decoration: none;
+    color: #E8E6EA;
+    font-weight: 500;
+    font-size: 1.6rem;
+    margin-right: 2rem;
+}
