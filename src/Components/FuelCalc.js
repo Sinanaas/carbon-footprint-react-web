@@ -42,22 +42,21 @@ function FuelCalc({ updateTotalSum }) {
       <div className="fuel-form">
         <form onSubmit={handleSubmit}>
           <h3>Fuel consumption in a year (liters)</h3>
-          <div className="fuel-util">
-            <label>
-              <select value={fuelType} onChange={(e) => setFuelType(e.target.value)}>
-                <option value="gasoline">Gasoline</option>
-                <option value="diesel">Diesel</option>
-              </select>
-            </label>
-            <input
-              type="number"
-              placeholder="Enter liters"
-              value={literUsed}
-              onChange={(e) => setLiter(e.target.value)}
-              required
-            />
-            <button type="submit">Calculate</button>
-          </div>
+          <label>
+            {/* <h4>Select Fuel Type:</h4> */}
+            <select value={fuelType} onChange={(e) => setFuelType(e.target.value)}>
+              <option value="gasoline">Gasoline</option>
+              <option value="diesel">Diesel</option>
+            </select>
+          </label>
+          <input
+            type="number"
+            placeholder="Enter liters"
+            value={literUsed}
+            onChange={(e) => setLiter(e.target.value)}
+            required
+          />
+          <button type="submit">Calculate</button>
         </form>
         {results !== null && (
           <div className="fuel-results">

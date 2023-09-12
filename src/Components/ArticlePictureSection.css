@@ -1,5 +1,29 @@
 .ArticlePictureSection {
-    width: 100vw;
-    background-color: red;
-    height: 40vh;
-}
+    max-width: 100%;
+    width: 100%;
+    min-width: 100%;
+    background-color: #405a4e;
+    height: auto;
+  }
+  
+  .carousel-item {
+    text-align: center; /* Center-align the image and description */
+    padding: 20px; /* Add spacing between the image and description */
+  }
+  
+  .carousel-image {
+    max-width: 100%;
+    width: auto;
+    max-height: 300px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px; /* Add border radius to the images */
+  }
+  
+  .image-description {
+    margin-top: 10px; /* Add space between the image and description */
+    font-size: 16px; /* Customize the description font size */
+    color: #ffffff; /* Customize the description text color */
+  }
+
+  

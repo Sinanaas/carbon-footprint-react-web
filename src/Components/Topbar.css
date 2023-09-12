@@ -1,35 +1,117 @@
+/* Topbar.css */
 .Topbar {
-    width: 100vw;
-    height: 12vh;
-    background-color: #55725D;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-
-.Topbar img {
-    display: block;
-    width: auto;
-    scale: .7;
-    height: auto;
-}
-
-.Topbar ul {
+    padding: 20px;
+    background-color: #405a4e;
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+  
+  .img-container {
+    max-width: 150px;
+  }
+  
+  .links-container {
     display: flex;
-}
-
-.Topbar .links-container {
+    align-items: center;
+    margin-right: 50px;
+    justify-content: flex-end;
+  }
+  
+  .all-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-    padding: 0 3rem 0 0;
-}
-
-.links-container a {
+  }
+  
+  .all-links li {
+    margin-right: 20px;
+  }
+  
+  .all-links li:last-child {
+    margin-right: 0;
+  }
+  
+  .all-links a {
     text-decoration: none;
-    color: #E8E6EA;
+    color: inherit;
     font-weight: 500;
     font-size: 1.6rem;
-    margin-right: 2rem;
-}
+  }
+  
+  .mobile-menu-toggle {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    position: relative;
+  }
+  
+  .bar {
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    transition: background-color 0.3s ease;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    margin: 2px 0;
+  }
+  
+  /* Highlight the bars when active */
+  .Topbar.mobile-menu-open .bar {
+    background-color: white;
+    border: 1px solid #fff;
+  }
+  
+  /* Add a square frame around the hamburger icon when clicked */
+  .mobile-menu-toggle.active::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+  }
+  
+  /* Media Query for Small Screens */
+  @media (max-width: 900px) {
+    .mobile-menu-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 20px;
+    }
+  
+    .all-links {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      margin-top: 50px;
+      top: 60px;
+      right: 20px;
+      background-color: #55725d;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+  
+    .all-links li {
+      margin: 1rem 0;
+    }
+  
+    .Topbar.mobile-menu-open .all-links {
+      display: flex;
+    }
+  }
+  

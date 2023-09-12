@@ -20,43 +20,24 @@ function App() {
   }
 
   const updateTotal2 = (fuelValues, propaneValues, electricityValues, wasteValues) => {
-    let totalSemua = 0
-    if(fuelValues !== 0 && fuelValues !== null) {
-      // if(fuelValue > fuelValues) {
+    if(fuelValues  !== 0 && fuelValues !== null) {
         updateTotal(fuelValues - fuelValue)
         setFuelValue(fuelValues)
-      // } else {
-      //   updateTotal(fuelValues)
-
-      // }
-      // totalSemua += fuelValue
     }
     if(propaneValues !== 0 && propaneValues !== null) {
-      setPropaneValue(propaneValues - propaneValue)
-      updateTotal(propaneValues)
-      // totalSemua += propaneValue
+      updateTotal(propaneValues - propaneValue)
+      setPropaneValue(propaneValues)
     }
     if(electricityValues !== 0 && electricityValues !== null) {
-      setElectricityValue(electricityValues - electricityValue)
-      updateTotal(electricityValues)
-      // totalSemua += electricityValue
+      updateTotal(electricityValues - electricityValue)
+      setElectricityValue(electricityValues)
     }
     if(wasteValues !== 0 && wasteValues !== null) {
-      setWasteValue(wasteValues - wasteValue)
-      updateTotal(wasteValues)
-      // totalSemua += wasteValue
+      updateTotal(wasteValues - wasteValue)
+      setWasteValue(wasteValues)
     }
-    // console.log("Fuel Value: ", fuelValue, "Propane Value: ", propaneValue, "Electricity Value: ", electricityValue, "Waste Value: ", wasteValue)
-    // console.log("Propane Value: ", propaneValue)
-    // console.log("Electricity Value: ", electricityValue)
-    // console.log("Waste Value: ", wasteValue)
-    // setTotalSum(totalSum + fuelValue)
-    // setTotalSum(totalSum + propaneValue)
-    // setTotalSum(totalSum + electricityValue)
-    // setTotalSum(totalSum + wasteValue)
-    // setTotalSum(totalSemua)
-    // console.log(fuelValues, propaneValues, electricityValues, wasteValues)
-    // console.log(fuelValue, propaneValue, electricityValue, wasteValue, "[", totalSum, "]")
+    console.log("#Fuel Value: " + fuelValue + " Propane Value: " + propaneValue + " Electricity Value: " + electricityValue + " Waste Value: " + wasteValue)
+    // console.log("Fuel Values: " + fuelValues + " Propane Values: " + prop  aneValues + " Electricity Values: " + electricityValues + " Waste Values: " + wasteValues)
   }
 
   return (
@@ -64,19 +45,19 @@ function App() {
       <div className="topbar">
         <Topbar/>
       </div>
-      <div className="left-right">
+      <div className="article-picture">
+        <ArticlePictureSection/>
+      </div>
+      <div className="calc">
         <div className="calc-section">
-          <div className="kiri">
-            <PropaneCalc updateTotalSum={updateTotal2} />
-            <ElectricityCalc updateTotalSum={updateTotal2}/>
-          </div>
-          <div className="kanan">
-            <WasteCalc updateTotalSum={updateTotal2}/>
-            <FuelCalc updateTotalSum={updateTotal2}/>
-          </div>
+          <PropaneCalc updateTotalSum={updateTotal2} />
+          <ElectricityCalc updateTotalSum={updateTotal2}/>
+          <WasteCalc updateTotalSum={updateTotal2}/>
+          <FuelCalc updateTotalSum={updateTotal2}/>
         </div>
-        <h1>Results</h1>
-        <p>Total Sum: {totalSum}</p>
+        <div className="calc-result">
+          <h1>Your Carbon Footprint: {totalSum}</h1>
+        </div>
       </div>
     </div>
   );

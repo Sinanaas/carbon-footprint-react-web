@@ -33,16 +33,14 @@ function WasteCalc({ updateTotalSum }) {
       <div className="waste-form">
         <form onSubmit={handleSubmit}>
           <h3>Waste consumption in a year (tons)</h3>
-          <div className="waste-util">
-            <input
-              type="number"
-              placeholder="Enter tons"
-              value={tonUsed}
-              onChange={(e) => setTon(e.target.value)}
-              required
-            />
-            <Button type='submit' bg='secondary' as={Button}>Calculate</Button>
-          </div>
+          <input
+            type="number"
+            placeholder="Enter tons"
+            value={tonUsed}
+            onChange={(e) => setTon(e.target.value)}
+            required
+          />
+          <Button type='submit' bg='secondary' as={Button}>Calculate</Button>
         </form>
         {results !== null && (
           <div className="waste-results">

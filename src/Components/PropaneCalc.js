@@ -38,16 +38,14 @@ function PropaneCalc({ updateTotalSum }) {
       <div className="propane-form">
         <form onSubmit={handleSubmit}>
           <h3>Propane consumption in a year (liters)</h3>
-          <div className="propane-util">
-            <input
-              type="number"
-              placeholder="Enter liters"
-              value={litersUsed}
-              onChange={(e) => setLitersUsed(e.target.value)}
-              required
-            />
-            <button type="submit">Calculate</button>
-          </div>
+          <input
+            type="number"
+            placeholder="Enter liters"
+            value={litersUsed}
+            onChange={(e) => setLitersUsed(e.target.value)}
+            required
+          />
+          <button type="submit">Calculate</button>
         </form>
         {results !== null && (
           <div className="propane-results">
