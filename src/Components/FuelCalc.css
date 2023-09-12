@@ -1,0 +1,105 @@
+/* Default styles for larger screens */
+.FuelContainer {
+  background-color: #8cb27f;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  margin: 20px 0 20px 20px; /* Adjust margin to center the container */
+  text-align: center;
+  color: white; /* Text color */
+}
+
+.fuel-header h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.fuel-form {
+  max-width: 300px; /* Adjust the max-width for the form */
+  margin: 0 auto; /* Center the form horizontally within the container */
+}
+
+.fuel-form h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-align: center; /* Align the text to the left */
+}
+
+.fuel-form h4 {
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: left; /* Align the text to the left */
+}
+
+.fuel-form label {
+  font-size: 16px;
+  margin-bottom: 5px; /* Add a bit of space below the label */
+  text-align: left; /* Align label text to the left */
+}
+
+.fuel-form select,
+.fuel-form input[type="number"] {
+  width: 100%; /* Make both select and input the same width */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.fuel-form input{
+    margin-left: -7px;
+}
+
+.fuel-form select {
+  width: 100%;
+  padding: 10px;
+  appearance: none;
+  margin-bottom: 15px;
+  margin-left: 3px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center; /* Center text in the select */
+}
+
+.fuel-form button {
+  background-color: #55725d; /* Button background color */
+  color: white; /* Button text color */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.fuel-form button:hover {
+  background-color: #405a4e; /* Hover background color */
+}
+
+.fuel-results {
+  margin-top: 20px;
+  background-color: #405A4E;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  color: #fff; /* Text color for results */
+}
+
+.fuel-results h1 {
+  font-size: 20px;
+}
+
+.fuel-results p {
+  font-size: 18px;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .FuelContainer {
+    margin: 20px auto; /* Center the container horizontally on smaller screens */
+  }
+}

@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  background-color: antiquewhite;
+  height: 1000vh;
+}
+
+.calc-section {
+  padding: 12vh;
+}
