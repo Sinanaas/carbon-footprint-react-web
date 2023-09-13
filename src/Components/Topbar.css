@@ -8,7 +8,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    /* background-color: red; */
     background-color: #405a4e;
+    height: 12vh;
     color: #fff;
     transition: all 0.3s ease;
   }

@@ -1,9 +1,9 @@
 .ArticlePictureSection {
     max-width: 100%;
     width: 100%;
-    min-width: 100%;
+    /* min-width: 100%; */
     background-color: #405a4e;
-    height: auto;
+    height: 88vh;
   }
   
   .carousel-item {

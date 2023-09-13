@@ -9,6 +9,10 @@
   height: 200vh;
 }
 
+.article-picture {
+  /* height: 100vh; */
+}
+
 .calc-section {
   /* background-color: rebeccapurple; */
   display: flex;
