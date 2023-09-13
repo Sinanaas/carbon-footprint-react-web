@@ -7,6 +7,10 @@ import WasteCalc from './Components/WasteCalc';
 import FuelCalc from './Components/FuelCalc';
 import { Button } from 'react-bootstrap';
 import { useState } from 'react';
+import { Container } from 'react-bootstrap';
+import Footer from './Components/Footer';
+import Rank from './Components/Rank';
+import Map from './Components/Map';
 
 function App() {
   const [totalSum, setTotalSum] = useState(0)
@@ -59,6 +63,11 @@ function App() {
           <h1>Your Carbon Footprint: {totalSum}</h1>
         </div>
       </div>
+      <Container className="bg-white">
+        <Map />
+        <Rank />
+      </Container>
+      <Footer />
     </div>
   );
 }
