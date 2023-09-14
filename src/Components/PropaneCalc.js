@@ -49,7 +49,7 @@ function PropaneCalc({ updateTotalSum }) {
         </form>
         {results !== null && (
           <div className="propane-results">
-            <h1>Carbon Emissions:</h1>
+            <h3>Carbon Emissions:</h3>
             <p>{results} metric tons CO2</p>
           </div>
         )}

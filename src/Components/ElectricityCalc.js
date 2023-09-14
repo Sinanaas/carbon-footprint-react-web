@@ -49,7 +49,7 @@ function ElectricityCalc({ updateTotalSum }) {
         </form>
         {results !== null && (
           <div className="electricity-results">
-            <h1>Carbon Emissions:</h1>
+            <h3>Carbon Emissions:</h3>
             <p>{results} metric tons CO2</p>
           </div>
         )}

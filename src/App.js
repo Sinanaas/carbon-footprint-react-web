@@ -53,6 +53,7 @@ function App() {
         <ArticlePictureSection/>
       </div>
       <div className="calc">
+        <h1 style={{color: '#313638'}}>Calculate your carbon footprint now!</h1>
         <div className="calc-section">
           <PropaneCalc updateTotalSum={updateTotal2} />
           <ElectricityCalc updateTotalSum={updateTotal2}/>
@@ -60,13 +61,21 @@ function App() {
           <FuelCalc updateTotalSum={updateTotal2}/>
         </div>
         <div className="calc-result">
-          <h1>Your Carbon Footprint: {totalSum}</h1>
+          <h2>Total Carbon Footprint: {totalSum} metric tons CO2</h2>
+        </div>
+        <div className="calc-disclaimer">
+          <div className="disclaimer-title">
+            <p><b>Disclaimer:</b></p>
+          </div>
+          <div className="disclaimer-text">
+            <p>Calculating your carbon footprint involves various metrics, each contributing to a comprehensive assessment of your environmental impact. However, on this platform, we focus on four key metrics to provide you with a simplified estimate of your carbon footprint.</p>
+          </div>
         </div>
       </div>
-      <Container className="bg-white">
+      <div className="map-div bg-white">
         <Map />
         <Rank />
-      </Container>
+      </div>
       <Footer />
     </div>
   );

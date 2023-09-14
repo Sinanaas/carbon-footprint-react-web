@@ -54,16 +54,20 @@
   }
   
   .electricity-results {
+    display: flex;
+    flex-direction: column;
     margin-top: 20px;
     background-color: #405A4E;
     border-radius: 5px;
     padding: 10px;
+    width: 100%;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    color: #fff; /* Text color for results */
+    color: #fff;
   }
   
-  .electricity-results h1 {
+  .electricity-results h3 {
     font-size: 20px;
+    margin-top: 1rem;
   }
   
   .electricity-results p {

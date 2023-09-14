@@ -20,7 +20,6 @@
   
   .fuel-form {
     max-width: 300px;
-    /* background-color: aqua; */
     margin: 0 auto; 
   }
   
@@ -51,9 +50,9 @@
   }
   
   .fuel-form select {
-    width: 100%;
+    width: 89.5%;
     padding: 4% 5% 4% 5%;
-    appearance: none;
+    /* appearance: none; */
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
@@ -78,16 +77,20 @@
   }
   
   .fuel-results {
+    display: flex;
+    flex-direction: column;
     margin-top: 20px;
     background-color: #405A4E;
     border-radius: 5px;
     padding: 10px;
+    width: 100%;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     color: #fff; 
   }
   
-  .fuel-results h1 {
+  .fuel-results h3 {
     font-size: 20px;
+    margin-top: 1rem;
   }
   
   .fuel-results p {
