@@ -18,6 +18,10 @@
   .img-container {
     max-width: 150px;
   }
+
+  .Topbar img {
+    max-width: 300px;
+  }
   
   .links-container {
     display: flex;
