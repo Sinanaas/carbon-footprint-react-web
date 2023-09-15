@@ -175,13 +175,13 @@ const Rank = () => {
     }, [])
 
     const getBadge = (iqa) => {
-        if (iqa >= 4){
+        if (iqa >= 4) {
             return 'danger'
         }
-        else if (iqa == 3){
+        else if (iqa == 3) {
             return 'warning'
         }
-        else{
+        else {
             return 'success'
         }
     }
@@ -199,35 +199,45 @@ const Rank = () => {
 
     return (
         <>
-            <section className="rank p-4 rounded">
-                <div className="title mb-4">
-                    <h3>Rank Kualitas Udara di Indonesia</h3>
-                </div>
-                <Table striped bordered hover className='w-50 text-center'>
-                    <thead className='text-center table-primary'>
+            <div className='container' >
+                <section className="rank p-4 rounded">
+                    <div className="title mb-4 text-light text-center">
+                        <h3>Rank Kualitas Udara di Indonesia</h3>
+                    </div>
+                    <Table>
                         <tr>
-                            <th>No.</th>
-                            <th>Nama Kota</th>
-                            <th>Kualitas Udara</th>
-                            <th>Status</th>
+                            <Table striped bordered hover className='w-100 text-center' style={{ marginBottom : '-0.5px'  }}>
+                                <thead className='text-center table-success'>
+                                    <th style={{ width : '10%' }}>No.</th>
+                                    <th style={{ width : '30%' }}>Nama Kota</th>
+                                    <th style={{ width : '30%' }}>Kualitas Udara</th>
+                                    <th style={{ width : '30%' }}>Status</th>
+                                </thead>
+                            </Table>
+                        {/* </tr>
+                        <tr> */}
+                            <div style={{ maxHeight: '500px', overflow: 'auto' }}>
+                                <Table striped bordered hover className='w-100 text-center bg-white'>
+                                    {/* <tbody> */}
+                                    {
+                                        value.map((value, idx) => {
+                                            return (
+                                                <tr key={idx}>
+                                                    <td style={{ width : '10%' }}>{num++}</td>
+                                                    <td style={{ width : '30%' }}>{value.name}</td>
+                                                    <td style={{ width : '30%' }}>{value.iqa}</td>
+                                                    <td style={{ width : '30%' }}><Badge bg={getBadge(value.iqa)}>{getStatus(value.iqa)}</Badge></td>
+                                                </tr>
+                                            )
+                                        })
+                                    }
+                                    {/* </tbody> */}
+                                </Table>
+                            </div>
                         </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            value.map((value, idx) => {
-                                return (
-                                    <tr key={idx}>
-                                        <td>{num++}</td>
-                                        <td>{value.name}</td>
-                                        <td>{value.iqa}</td>
-                                        <td><Badge bg={getBadge(value.iqa)}>{getStatus(value.iqa)}</Badge></td>
-                                    </tr>
-                                )
-                            })
-                        }
-                    </tbody>
-                </Table>
-            </section>
+                    </Table>
+                </section>
+            </div >
         </>
 
     )

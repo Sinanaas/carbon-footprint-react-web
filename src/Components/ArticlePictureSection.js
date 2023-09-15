@@ -7,10 +7,13 @@ import './ArticlePictureSection.css';
 import image1 from '../Assets/1.jpg';
 import image2 from '../Assets/2.jpg';
 import image3 from '../Assets/3.jpg';
+import {renderToStaticMarkup} from 'react-dom/server';
+
 import leftSide from '../Assets/Left Side.png'
 import { computeHeadingLevel } from '@testing-library/react';
 
 const ArticlePictureSection = () => {
+
   const settings = {
     dots: true,
     infinite: true,
@@ -18,10 +21,10 @@ const ArticlePictureSection = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2500, 
+    autoplaySpeed: 2500,
     arrows: false
   };
-  
+
   const article_data = [
     {
       id: 1,
@@ -32,7 +35,7 @@ const ArticlePictureSection = () => {
         <>
           Various cross-sectoral organizations in Indonesia are starting to monitor the impact of their carbon emissions with Jejak.in and Microsoft, for a sustainable future in Indonesia.<br />
           <br />
-          To achieve a sustainable future, Indonesia has committed to reducing its carbon emissions by 41 percent by 2030. This commitment is included in the Indonesia Emas 2045 (Golden Indonesia 2045) Program. 
+          To achieve a sustainable future, Indonesia has committed to reducing its carbon emissions by 41 percent by 2030. This commitment is included in the Indonesia Emas 2045 (Golden Indonesia 2045) Program.
           <br />
           <br />
           To bring this goal to life, the participation of everyone in society is needed. This is because our daily activities such as turning on the lights, eating, and driving contribute to the creation of carbon footprint—the total greenhouse gas emissions generated directly or indirectly from individuals, organizations, events, or products.*
@@ -69,48 +72,51 @@ const ArticlePictureSection = () => {
       title: 'Jakarta aims to achieve net-zero emissions by 2050',
       description: (
         <>
-          We are reaping what we have sown. As extreme weather and floods have besieged us lately, many have come to realize that climate change is real and we are the main culprit of so many environmental disasters happening on Earth. 
+          We are reaping what we have sown. As extreme weather and floods have besieged us lately, many have come to realize that climate change is real and we are the main culprit of so many environmental disasters happening on Earth.
           <br />
           <br />
-          “In Indonesia and many parts of the world, climate and hydrometeorological disasters at an unprecedented scale are happening, resulting in a great number of victims and financial losses,” Leonard Simanjuntak, Greenpeace country director for Indonesia, said at the Goethe Institute Jakarta on Dec. 14, 2022. 
+          “In Indonesia and many parts of the world, climate and hydrometeorological disasters at an unprecedented scale are happening, resulting in a great number of victims and financial losses,” Leonard Simanjuntak, Greenpeace country director for Indonesia, said at the Goethe Institute Jakarta on Dec. 14, 2022.
           <br />
           <br />
-          The scale is predicted to keep on escalating if we do not rein in the main cause of the problem, which is carbon emissions. 
+          The scale is predicted to keep on escalating if we do not rein in the main cause of the problem, which is carbon emissions.
           <br />
           <br />
           Carbon dioxide emissions have increased exponentially from year to year. According to Ourworldindata.org, the world emitted six billion tonnes of CO2 in 1950. The number almost quadrupled in 1990 with the global carbon emissions amounting to 22 billion tonnes.
           <br />
           <br />
-          Last year, the world emitted 37.12 billion tonnes of CO2 emissions, precipitating global warming at an alarming level. 
+          Last year, the world emitted 37.12 billion tonnes of CO2 emissions, precipitating global warming at an alarming level.
         </>
       ),
     },
   ];
 
   return (
-    <div className="ArticlePictureSection">
-      <Slider {...settings}>
-        {article_data.map((article) => (
-          <div key={article.id} className='article-card'>
-            {console.log("Article ID: " + article.id)}
-            <div className="carousel-items">
-              <div className="carousel-items-left">
-              <a href={article.url} target="_blank" rel="noopener noreferrer">
-                <img
-                  src={article.img}
-                  alt={`Illustration for the article ${article.id + 1}`}
-                  className="carousel-image"
-                />
-              </a>
-              </div>
-              <div className="carousel-items-right">
-                <h2 className="image-description">{article.title}</h2>
-                <p>{article.description}</p>
+    <div className="ArticlePictureSection d-flex justify-content-center align-items-center">
+      <div className='container'>
+        <h1 className='text-light text-center mb-3'>Hai Ngab</h1>
+        <Slider {...settings} >
+          {article_data.map((article) => (
+            <div key={article.id} className='article-card'>
+              {console.log("Article ID: " + article.id)}
+              <div className="carousel-items">
+                <div className="carousel-items-left">
+                  <a href={article.url} target="_blank" rel="noopener noreferrer">
+                    <img
+                      src={article.img}
+                      alt={`Illustration for the article ${article.id + 1}`}
+                      className="carousel-image"
+                    />
+                  </a>
+                </div>
+                <div className="carousel-items-right">
+                  <h2 className="image-description">{article.title}</h2>
+                  <p>{article.description}</p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </Slider>
+          ))}
+        </Slider>
+      </div>
     </div>
   );
 };
