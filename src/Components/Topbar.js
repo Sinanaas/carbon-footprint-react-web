@@ -18,7 +18,7 @@ function Topbar() {
     <>
 
       {/* <div className={`Topbar ${showMobileMenu ? 'mobile-menu-open' : ''}`}> */}
-      <div className='Topbar container w-100 d-flex justify-content-between p-3'>
+      <div className='Topbar container d-flex justify-content-between p-3'>
         <div className="img-container">
           <img src={Logo} alt="logo" />
         </div>

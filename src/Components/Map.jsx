@@ -177,7 +177,7 @@ const Map = () => {
 
     return (
         <>
-            <div className='card rounded shadow bg-body-tertiary rounded p-5'>
+            <div className='card rounded shadow bg-body-tertiary rounded p-5 '>
                 <div className="mapTitle mb-3">
                     <h3>Jelajahi Kualitas Udara di Indonesia</h3>
                 </div>

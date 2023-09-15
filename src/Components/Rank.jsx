@@ -199,48 +199,41 @@ const Rank = () => {
 
     return (
         <>
-            <div className='container' >
+            <div className='container'>
                 <section className="rank p-4 rounded">
                     <div className="title mb-4 text-light text-center">
                         <h3>Rank Kualitas Udara di Indonesia</h3>
                     </div>
-                    <Table>
-                        <tr>
-                            <Table striped bordered hover className='w-100 text-center' style={{ marginBottom : '-0.5px'  }}>
-                                <thead className='text-center table-success'>
-                                    <th style={{ width : '10%' }}>No.</th>
-                                    <th style={{ width : '30%' }}>Nama Kota</th>
-                                    <th style={{ width : '30%' }}>Kualitas Udara</th>
-                                    <th style={{ width : '30%' }}>Status</th>
-                                </thead>
-                            </Table>
-                        {/* </tr>
-                        <tr> */}
-                            <div style={{ maxHeight: '500px', overflow: 'auto' }}>
-                                <Table striped bordered hover className='w-100 text-center bg-white'>
-                                    {/* <tbody> */}
-                                    {
-                                        value.map((value, idx) => {
-                                            return (
-                                                <tr key={idx}>
-                                                    <td style={{ width : '10%' }}>{num++}</td>
-                                                    <td style={{ width : '30%' }}>{value.name}</td>
-                                                    <td style={{ width : '30%' }}>{value.iqa}</td>
-                                                    <td style={{ width : '30%' }}><Badge bg={getBadge(value.iqa)}text="light">{getStatus(value.iqa)}</Badge></td>
-                                                </tr>
-                                            )
-                                        })
-                                    }
-                                    {/* </tbody> */}
-                                </Table>
-                            </div>
-                        </tr>
-                    </Table>
+                    <div className="scrollable-table" style={{ maxHeight: '500px', overflow: 'auto' }}>
+                        <Table striped bordered hover className='w-100 text-center bg-white'>
+                            <thead className='text-center table-success'>
+                                <tr>
+                                    <th style={{ width: '10%' }}>No.</th>
+                                    <th style={{ width: '30%' }}>Nama Kota</th>
+                                    <th style={{ width: '30%' }}>Kualitas Udara</th>
+                                    <th style={{ width: '30%' }}>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {value.map((value, idx) => (
+                                    <tr key={idx}>
+                                        <td style={{ width: '10%' }}>{idx + 1}</td>
+                                        <td style={{ width: '30%' }}>{value.name}</td>
+                                        <td style={{ width: '30%' }}>{value.iqa}</td>
+                                        <td style={{ width: '30%' }}>
+                                            <Badge bg={getBadge(value.iqa)} text="light">
+                                                {getStatus(value.iqa)}
+                                            </Badge>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </Table>
+                    </div>
                 </section>
-            </div >
+            </div>
         </>
-
-    )
+    );
 }
 
 export default Rank
