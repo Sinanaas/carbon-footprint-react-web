@@ -3,6 +3,7 @@ import PropaneCalc from './PropaneCalc';
 import ElectricityCalc from './ElectricityCalc';
 import WasteCalc from './WasteCalc';
 import FuelCalc from './FuelCalc';
+import './Calculator.css'
 
 const Calculator = () => {
     const [totalSum, setTotalSum] = useState(0)
@@ -38,7 +39,7 @@ const Calculator = () => {
 
     return (
         <>
-            <div className='container card p-5 rounded shadow bg-body-tertiary rounded' >
+            <div className='container card rounded shadow bg-body-tertiary rounded calcs-section' >
                 <h1 style={{ color: '#313638' }} className='text-center mb-5'>Calculate your carbon footprint now!</h1>
                 <div className="calc-section">
                     <div className='row'>

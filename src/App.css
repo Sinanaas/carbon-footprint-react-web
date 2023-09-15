@@ -5,8 +5,6 @@
 
 .App {
   background-color: antiquewhite;
-  /* background-color: rebeccapurple; */
-  height: 200vh;
 }
 
 header{
@@ -32,10 +30,11 @@ header{
 }
 
 .calc {
-  padding: 5rem 5rem .5rem 5rem;
+  /* padding: 5rem 5rem .5rem 5rem; */
   display: flex;
+  justify-content: center;
   flex-direction: column;
-  height: 88vh;
+  height: 100vh;
 }
 
 .calc h1 {

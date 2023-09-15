@@ -93,7 +93,7 @@ const ArticlePictureSection = () => {
   return (
     <div className="ArticlePictureSection d-flex justify-content-center align-items-center">
       <div className='container'>
-        <h1 className='text-light text-center mb-3'>Hai Ngab</h1>
+        <h1 className='text-light text-center mb-3'>Enviromental News</h1>
         <Slider {...settings} >
           {article_data.map((article) => (
             <div key={article.id} className='article-card'>

@@ -226,7 +226,7 @@ const Rank = () => {
                                                     <td style={{ width : '10%' }}>{num++}</td>
                                                     <td style={{ width : '30%' }}>{value.name}</td>
                                                     <td style={{ width : '30%' }}>{value.iqa}</td>
-                                                    <td style={{ width : '30%' }}><Badge bg={getBadge(value.iqa)}>{getStatus(value.iqa)}</Badge></td>
+                                                    <td style={{ width : '30%' }}><Badge bg={getBadge(value.iqa)}text="light">{getStatus(value.iqa)}</Badge></td>
                                                 </tr>
                                             )
                                         })
