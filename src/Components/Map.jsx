@@ -178,8 +178,8 @@ const Map = () => {
     return (
         <>
             <div className='card rounded shadow bg-body-tertiary rounded p-5 '>
-                <div className="mapTitle mb-3">
-                    <h3>Jelajahi Kualitas Udara di Indonesia</h3>
+                <div className="mapTitle mb-3 text-center text-secondary">
+                    <h3>Explore Air Quality in Indonesia</h3>
                 </div>
                 <section className="mapArea">
                     <svg preserveAspectRatio="xMidYMid"

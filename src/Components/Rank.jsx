@@ -45,6 +45,10 @@ const Rank = () => {
     ]
 
     const lostData = {
+        "Bali": {
+            "lat": -8.409518,
+            "lon": 115.188919
+        },
         "Jawa Barat": {
             "lat": -7.090943690869484,
             "lon": 107.65432825625165
@@ -138,16 +142,17 @@ const Rank = () => {
                 const getCountryLoc = await axios.get(
                     `http://api.openweathermap.org/geo/1.0/direct?q=${province}&appid=${apiKey}`
                 );
+                // console.log(getCountryLoc)
                 if (getCountryLoc.data[0] != undefined) {
+                    if(getCountryLoc.data[0]["name"] === "Paris") {
+                        getCountryLoc.data[0]["name"] = "Bali";
+                    }
                     const countryLocX = getCountryLoc.data[0]["lat"];
                     const countryLocY = getCountryLoc.data[0]["lon"];
                     const getAirQuality = await axios.get(
                         `http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=${countryLocX}&lon=${countryLocY}&appid=${apiKey}`
                     );
-                    // obj[getCountryLoc.data[0]["name"]] = getAirQuality.data["list"][0]["main"]["aqi"]
-                    // obj["name"] = getCountryLoc.data[0]["name"]
-                    // obj["iqa"] = getAirQuality.data["list"][0]["main"]["aqi"]
-                    obj = { ...{}, name: getCountryLoc.data[0]["name"], iqa: getAirQuality.data["list"][0]["main"]["aqi"] };
+                    obj[getCountryLoc.data[0]["name"]] = getAirQuality.data["list"][0]["main"]["aqi"]
                 }
                 else {
                     const countryLocName = province
@@ -161,10 +166,12 @@ const Rank = () => {
                 array.push(obj)
             });
             await Promise.all(promises);
-            array.sort((a, b) => b.iqa - a.iqa);
-
-            // const uniq = [...new Set (array.map (JSON.stringify))].map (JSON.parse);
-            setValue(array)
+      
+            const uniq = [...new Set(array.map(JSON.stringify))].map(JSON.parse);
+            console.log(uniq)
+            let newData = Object.entries(uniq[0])
+            newData.sort(((a, b) => b[1] - a[1]));
+            setValue(newData)
         }
         catch (e) {
             console.log(e.message)
@@ -174,18 +181,6 @@ const Rank = () => {
     useEffect(() => {
         getCountry()
     }, [])
-
-    // const getBadge = (iqa) => {
-    //     if (iqa >= 4) {
-    //         return 'danger'
-    //     }
-    //     else if (iqa == 3) {
-    //         return 'warning'
-    //     }
-    //     else {
-    //         return 'success'
-    //     }
-    // }
 
     const getBadge = (iqa) => {
         if (iqa === 5) {
@@ -221,34 +216,33 @@ const Rank = () => {
             <div className='container'>
                 <section className="rank p-4 rounded">
                     <div className="title mb-4 text-light text-center">
-                        <h3>Rank Kualitas Udara di Indonesia</h3>
+                        <h3>Air Quality Ranking in Indonesia</h3>
                     </div>
-                    <div className="scrollable-table" style={{ maxHeight: '500px', overflow: 'auto' }}>
-                        <Table striped bordered hover className='w-100 text-center bg-white'>
-                            <thead className='text-center table-success'>
-                                <tr>
-                                    <th style={{ width: '10%' }}>No.</th>
-                                    <th style={{ width: '30%' }}>Nama Kota</th>
-                                    <th style={{ width: '30%' }}>Kualitas Udara</th>
-                                    <th style={{ width: '30%' }}>Status</th>
+                    <div className="scrollable-table" style={{ maxHeight: '547.5px', overflow: 'auto' }}>
+                    <Table striped bordered hover className="w-100 text-center bg-white">
+                        <thead className="text-center table-success">
+                            <tr>
+                                <th style={{ width: "10%" }}>No.</th>
+                                <th style={{ width: "30%" }}>City</th>
+                                <th style={{ width: "30%" }}>Air Quality</th>
+                                <th style={{ width: "30%" }}>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {value.map((item, index) => (
+                                <tr key={index}>
+                                    <td style={{ width: "10%" }}>{index + 1}</td>
+                                    <td style={{ width: "30%" }}>{item[0]}</td>
+                                    <td style={{ width: "30%" }}>{item[1]}</td>
+                                    <td style={{ width: "30%" }}>
+                                        <span className={getBadge(item[1])} text="light">
+                                            {getStatus(item[1])}
+                                        </span>
+                                    </td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                {value.map((value, idx) => (
-                                    <tr key={idx}>
-                                        <td style={{ width: '10%' }}>{idx + 1}</td>
-                                        <td style={{ width: '30%' }}>{value.name}</td>
-                                        <td style={{ width: '30%' }}>{value.iqa}</td>
-                                        <td style={{ width: '30%' }}>
-                                            <span className={getBadge(value.iqa)}>{getStatus(value.iqa)}</span>
-                                            {/* <Badge className={getBadge(value.iqa)}  text="light">
-                                                {getStatus(value.iqa)}
-                                            </Badge> */}
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </Table>
+                            ))}
+                        </tbody>
+                    </Table>
                     </div>
                 </section>
             </div>
