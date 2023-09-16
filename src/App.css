@@ -34,7 +34,7 @@ header{
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 100vh;
+  height: 60vh;
 }
 
 .calc h1 {
@@ -52,10 +52,12 @@ header{
   font-size: 1.2rem;
   /* line-height: 5px; */
 }
-
+html {
+  scroll-behavior: smooth;
+}
 
 .calc{
-  height: 100vh;
+  height: 90vh;
 }
 
 
@@ -68,4 +70,9 @@ header{
   width: 100%;
   margin: 0;
   padding: 0;
+}
+
+.map-n-rank {
+  background-color: #3d5649;
+  height: 90vh;
 }

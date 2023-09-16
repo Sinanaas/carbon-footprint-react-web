@@ -1,7 +1,7 @@
 .ArticlePictureSection {
   width: 100%;
   background-color: #405a4e;
-  height: 90vh;
+  height: 100vh;
   padding: 1rem 2rem 1rem 2rem;
   position: relative; 
 }
@@ -84,6 +84,5 @@
   color: #fff;
 }
 .slick-dots li.slick-active button:before{
-  /* background-color: #fff; */
   color: white;
 }

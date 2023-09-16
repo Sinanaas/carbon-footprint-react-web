@@ -2,6 +2,7 @@ import React, { Component, useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import './Rank.css';
 import Badge from 'react-bootstrap/Badge';
+import './CustomBadgeStyles.css';
 import axios from 'axios';
 
 const Rank = () => {
@@ -174,15 +175,33 @@ const Rank = () => {
         getCountry()
     }, [])
 
+    // const getBadge = (iqa) => {
+    //     if (iqa >= 4) {
+    //         return 'danger'
+    //     }
+    //     else if (iqa == 3) {
+    //         return 'warning'
+    //     }
+    //     else {
+    //         return 'success'
+    //     }
+    // }
+
     const getBadge = (iqa) => {
-        if (iqa >= 4) {
-            return 'danger'
+        if (iqa === 5) {
+            return 'badge badge-primary'
         }
-        else if (iqa == 3) {
-            return 'warning'
+        else if (iqa === 4) {
+            return 'badge badge-secondary'
         }
-        else {
-            return 'success'
+        else if (iqa === 3) {
+            return 'badge badge-success'
+        }
+        else if (iqa === 2) {
+            return 'badge badge-danger'
+        }
+        else if (iqa === 1) {
+            return 'badge badge-warning'
         }
     }
 
@@ -221,9 +240,10 @@ const Rank = () => {
                                         <td style={{ width: '30%' }}>{value.name}</td>
                                         <td style={{ width: '30%' }}>{value.iqa}</td>
                                         <td style={{ width: '30%' }}>
-                                            <Badge bg={getBadge(value.iqa)} text="light">
+                                            <span className={getBadge(value.iqa)}>{getStatus(value.iqa)}</span>
+                                            {/* <Badge className={getBadge(value.iqa)}  text="light">
                                                 {getStatus(value.iqa)}
-                                            </Badge>
+                                            </Badge> */}
                                         </td>
                                     </tr>
                                 ))}

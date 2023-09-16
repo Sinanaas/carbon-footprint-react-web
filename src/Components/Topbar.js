@@ -15,15 +15,17 @@ function Topbar() {
   };
 
   return (
-    <div className={`Topbar ${showMobileMenu ? 'mobile-menu-open' : ''}`}>
+    <div className={`shadow-sm Topbar ${showMobileMenu ? 'mobile-menu-open' : ''}`}>
       <div className="img-container">
-        <img src={Logo} alt="logo"/>
+        <a href="#article-picture">
+          <img src={Logo} alt="logo"/>
+        </a>
       </div>
       <div className={`links-container ${showMobileMenu ? 'show' : ''}`} onClick={closeMobileMenu}>
         <ul className={`all-links ${showMobileMenu ? 'mobile-menu-open' : ''}`}>
-          <li><a href="#" style={{ fontSize: '1.2rem' }}>Calculator</a></li>
-          <li><a href="#" style={{ fontSize: '1.2rem' }}>Navigation</a></li>
-          <li><a href="#" style={{ fontSize: '1.2rem' }}>About</a></li>
+          <li><a href="#calc" style={{ fontSize: '1.2rem' }}>Calculator</a></li>
+          <li><a href="#navigation" style={{ fontSize: '1.2rem' }}>Navigation</a></li>
+          <li><a href="#about-us" style={{ fontSize: '1.2rem' }}>About</a></li>
         </ul>
       </div>
       <div className="mobile-menu-toggle" onClick={toggleMobileMenu}>

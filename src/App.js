@@ -14,21 +14,23 @@
         <header>
           <Topbar />
         </header>
-        <div className="article-picture">
+        <div className="article-picture" id='article-picture'>
           <ArticlePictureSection />
         </div>
-        <div className="calc">
+        <div className="calc" id='calc'>
           <Calculator />
         </div>
-        <div className='container-fluid row'>
-          <div className="map col-4 pt-3">
+        <div className='container-fluid row p-5 justify-content-center align-items-center map-n-rank' id='navigation'>
+          <div className="map col-4">
             <Rank />
           </div>
-          <div className='rank col-8 pt-5'>
+          <div className='rank col-8'>
             <Map />
           </div>
         </div>
-        <Footer />
+        <div id="about-us">
+          <Footer />
+        </div>
       </div>
     );
   }

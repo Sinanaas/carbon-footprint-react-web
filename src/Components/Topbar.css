@@ -3,19 +3,29 @@
   top: 0;
   left: 0;
   right: 0;
+  height: 10vh;
   z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 20px 10px 20px 40px;
   position: fixed;
   background-color: #405a4e;
   color: wheat;
   transition: all 0.3s ease;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .img-container {
-  max-width: 150px;
+  /* max-width: 150px; */
+  /* background-color: rebeccapurple; */
+}
+
+.img-container img {
+  width: 250px;
 }
 
 .links-container {
