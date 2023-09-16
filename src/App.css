@@ -5,9 +5,67 @@
 
 .App {
   background-color: antiquewhite;
-  height: 1000vh;
+}
+
+header{
+  background-color: #405a4e;  
+}
+
+/* .topbar {
+  margin-bottom: 12vh;
+} */
+
+.map, .rank{
+  background-color: #3d5649;
+}
+
+.map-container {
+  display: flex;
 }
 
 .calc-section {
-  padding: 12vh;
+  /* background-color: rebeccapurple; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.calc {
+  /* padding: 5rem 5rem .5rem 5rem; */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.calc h1 {
+  /* font-size: 72px; */
+  margin-bottom: 2rem;
+}
+
+.calc-disclaimer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: lightslategray;
+  margin-top: auto;
+  font-size: 1.2rem;
+  /* line-height: 5px; */
+}
+
+
+.calc{
+  height: 100vh;
+}
+
+
+.calc-result {
+  color: #405a4e;
+  /* margin-top: 2rem; */
+}
+.row{
+  /* max-width: 10vw; */
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }

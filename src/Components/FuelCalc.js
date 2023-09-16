@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import './FuelCalc.css'
 
-function FuelCalc() {
+function FuelCalc({ updateTotalSum }) {
   const [fuelType, setFuelType] = useState('gasoline'); // Default to gasoline
   const [literUsed, setLiter] = useState('');
   const [results, setResults] = useState(null);
+  const [previousResult, setPreviousResult] = useState(0);
 
   function calculateEmissions(litersConsumed) {
     const emissionsData = {
@@ -16,14 +18,21 @@ function FuelCalc() {
     };
 
     const metricTonsPerLiter = emissionsData[fuelType].gramsPerLiter * 1e-3; // Convert to metric tons
-    return litersConsumed * metricTonsPerLiter;
+    return (litersConsumed * metricTonsPerLiter).toFixed(3);
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const metricTonsCO2 = calculateEmissions(parseFloat(literUsed));
-    setResults(metricTonsCO2);
+  
+    const previousMetricTonsCO2 = previousResult !== null ? parseFloat(previousResult) : 0; 
+    const newMetricTonsCO2 = calculateEmissions(parseFloat(literUsed));
+    const totalMetricTonsCO2 = previousMetricTonsCO2 - newMetricTonsCO2;
+  
+    updateTotalSum(newMetricTonsCO2, 0, 0, 0);
+    setPreviousResult(newMetricTonsCO2);
+    setResults(newMetricTonsCO2);
   };
+  
 
   return (
     <div className="FuelContainer">
@@ -33,13 +42,12 @@ function FuelCalc() {
       <div className="fuel-form">
         <form onSubmit={handleSubmit}>
           <h3>Fuel consumption in a year (liters)</h3>
-          <label>
-            Select Fuel Type:
-            <select value={fuelType} onChange={(e) => setFuelType(e.target.value)}>
-              <option value="gasoline">Gasoline</option>
-              <option value="diesel">Diesel</option>
-            </select>
-          </label>
+          {/* <label> */}
+          <select value={fuelType} onChange={(e) => setFuelType(e.target.value)}>
+            <option value="gasoline">Gasoline</option>
+            <option value="diesel">Diesel</option>
+          </select>
+          {/* </label> */}
           <input
             type="number"
             placeholder="Enter liters"
@@ -51,7 +59,7 @@ function FuelCalc() {
         </form>
         {results !== null && (
           <div className="fuel-results">
-            <h1>Carbon Emissions:</h1>
+            <h3>Carbon Emissions:</h3>
             <p>{results} metric tons CO2</p>
           </div>
         )}
